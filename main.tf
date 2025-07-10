@@ -4,8 +4,8 @@ provider "google" {
   zone    = var.zone
 }
 
-resource "google_compute_instance" "tpot_honeypot" {
-  name         = "tpot-honeypot"
+resource "google_compute_instance" "tpot_honeypot_vm" {
+  name         = "tpot-honeypot-vm"
   machine_type = var.machine_type
   zone         = var.zone
 
