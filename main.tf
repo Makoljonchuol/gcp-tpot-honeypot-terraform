@@ -39,3 +39,16 @@ resource "google_compute_firewall" "default" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["http-server", "https-server"]
 }
+
+resource "google_compute_firewall" "tpot-ssh" {
+  name    = "tpot-allow-ssh-64295"
+  network = "default"
+  allow {
+    protocol = "tcp"
+    ports    = ["64295"]
+  }
+  source_ranges = ["0.0.0.0/0"]  # For open access; restrict for security
+  target_tags   = ["http-server", "https-server"]  # Match your VM's tags
+  priority      = 1000
+  description   = "Allow SSH to T-Pot on port 64295"
+}
